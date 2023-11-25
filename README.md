@@ -2,6 +2,12 @@
 
 * mvn test
 
+# To run mutation test
+
+* ```mvn -DwithHistory test-compile org.pitest:pitest-maven:mutationCoverage```
+
+* Output html report will be in target/pit-reports
+
 # linearalgebra
 A linear algebra package in Java.
 
