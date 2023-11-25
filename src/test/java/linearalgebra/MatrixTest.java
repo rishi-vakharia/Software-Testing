@@ -214,4 +214,188 @@ public class MatrixTest {
         Matrix matrix5 = new Matrix(entries5);
         assertFalse(matrix5.isSparse(0.2));
     }
+
+    @Test
+    public void testIsUpperTriangular() {
+        // Test case 1: Upper triangular matrix
+        // double[][] entries1 = {
+        //     {1, 2, 3},
+        //     {0, 4, 5},
+        //     {0, 0, 6}
+        // };
+        // Matrix matrix1 = new Matrix(entries1);
+        // assertTrue(matrix1.isUpperTriangular());
+
+        // Test case 2: Not an upper triangular matrix
+        double[][] entries2 = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        Matrix matrix2 = new Matrix(entries2);
+        assertFalse(matrix2.isUpperTriangular());
+
+        // Test case 3: Square matrix with zero values below the diagonal
+        double[][] entries3 = {
+            {1, 0, 0},
+            {4, 5, 0},
+            {7, 8, 9}
+        };
+        Matrix matrix3 = new Matrix(entries3);
+        assertTrue(matrix3.isUpperTriangular());
+
+        // Test case 4: Rectangular matrix (should return false)
+        double[][] entries4 = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+        Matrix matrix4 = new Matrix(entries4);
+        assertFalse(matrix4.isUpperTriangular());
+    }
+
+    @Test
+    public void testIsLowerTriangular() {
+        // Test case 1: Lower triangular matrix
+        // double[][] entries1 = {
+        //     {1, 0, 0},
+        //     {4, 5, 0},
+        //     {7, 8, 9}
+        // };
+        // Matrix matrix1 = new Matrix(entries1);
+        // assertTrue(matrix1.isLowerTriangular());
+
+        // Test case 2: Not a lower triangular matrix
+        double[][] entries2 = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        Matrix matrix2 = new Matrix(entries2);
+        assertFalse(matrix2.isLowerTriangular());
+
+        // Test case 3: Square matrix with zero values above the diagonal
+        double[][] entries3 = {
+            {1, 2, 3},
+            {0, 5, 6},
+            {0, 0, 9}
+        };
+        Matrix matrix3 = new Matrix(entries3);
+        assertTrue(matrix3.isLowerTriangular());
+
+        // Test case 4: Rectangular matrix (should return false)
+        double[][] entries4 = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+        Matrix matrix4 = new Matrix(entries4);
+        assertFalse(matrix4.isLowerTriangular());
+    }
+
+    @Test
+    public void testTrace() {
+        //base test 
+        double[][] entries = {
+            {7}
+        };
+        Matrix matrix0 = new Matrix(entries);
+        assertEquals(7.0, matrix0.trace(), delta);
+
+        // Test case 1: Square matrix with positive diagonal entries
+        double[][] entries1 = {
+            {1, 0, 0},
+            {0, 5, 0},
+            {0, 0, 9}
+        };
+        Matrix matrix1 = new Matrix(entries1);
+        assertEquals(15.0, matrix1.trace(), delta);
+
+        // Test case 2: Square matrix with negative diagonal entries
+        double[][] entries2 = {
+            {-1, 0, 0},
+            {0, -5, 0},
+            {0, 0, -9}
+        };
+        Matrix matrix2 = new Matrix(entries2);
+        assertEquals(-15.0, matrix2.trace(), delta);
+
+        // Test case 3: Rectangular matrix (should throw an exception)
+        // double[][] entries3 = {
+        //     {1, 2, 3},
+        //     {4, 5, 6}
+        // };
+        // Matrix matrix3 = new Matrix(entries3);
+        // try {
+        //     matrix3.trace();
+        // } catch (IllegalArgumentException e) {
+        //     assertEquals("Trace is not defined for non-square matrices", e.getMessage());
+        // }
+    }
+
+    @Test
+    public void testIsPermutationMatrix() {
+        // Test case 1: Permutation Matrix
+        double[][] entries1 = {
+            {0, 1, 0},
+            {1, 0, 0},
+            {0, 0, 1}
+        };
+        Matrix matrix1 = new Matrix(entries1);
+        assertTrue(matrix1.isPermutationMatrix());
+
+        // Test case 2: Non-Permutation Matrix (extra 1 in the first column)
+        double[][] entries2 = {
+            {1, 1, 0},
+            {0, 1, 0},
+            {0, 0, 1}
+        };
+        Matrix matrix2 = new Matrix(entries2);
+        assertFalse(matrix2.isPermutationMatrix());
+
+        // Test case 3: Non-Square Matrix (should throw an exception)
+        double[][] entries3 = {
+            {1, 0},
+            {0, 1},
+            {0, 0}
+        };
+        Matrix matrix3 = new Matrix(entries3);
+        try {
+            matrix3.isPermutationMatrix();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Matrix is not square", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testIsDiagonal() {
+        // Test case 1: Diagonal Matrix
+        double[][] entries1 = {
+            {1, 0, 0},
+            {0, 2, 0},
+            {0, 0, 3}
+        };
+        Matrix matrix1 = new Matrix(entries1);
+        assertTrue(matrix1.isDiagonal());
+
+        // Test case 2: Non-Diagonal Matrix (extra non-zero value)
+        double[][] entries2 = {
+            {1, 0, 0},
+            {0, 2, 1},
+            {0, 0, 3}
+        };
+        Matrix matrix2 = new Matrix(entries2);
+        assertFalse(matrix2.isDiagonal());
+
+        // Test case 3: Non-Square Matrix (should throw an exception)
+        double[][] entries3 = {
+            {1, 0},
+            {0, 1},
+            {0, 0}
+        };
+        Matrix matrix3 = new Matrix(entries3);
+        try {
+            matrix3.isDiagonal();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Matrix is not square.", e.getMessage());
+        }
+    }
 }
