@@ -1,602 +1,587 @@
 
-// package linearalgebra;
+package linearalgebra;
 
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
-// import static org.junit.Assert.assertArrayEquals;
+import org.junit.Test;
 
-// import static org.junit.Assert.assertEquals;
+/**
+ * Unit testing for the Vector class.
+ */
+public class VectorTest {
 
+   private double delta = 0.00001; // to compare floating-point numbers
 
-// import org.junit.Test;
+   // Constructor Tests
 
+   @Test
 
-// /**
+   public void testVectorConstructor() {
 
-//  * Unit testing for the Vector class.
+       Vector vector = new Vector(1.0, 2.0, 3.0);
 
-//  */
+       assertArrayEquals(new double[]{1.0, 2.0, 3.0}, vector.getEntries(), delta);
 
-// public class VectorTest {
 
+       Vector emptyVector = new Vector();
 
-//    private double delta = 0.00001; // to compare floating-point numbers
+       assertEquals(0, emptyVector.length());
 
+   }
 
-//    // Constructor Tests
 
-//    @Test
+   @Test
 
-//    public void testVectorConstructor() {
+   public void testCopyConstructor() {
 
-//        Vector vector = new Vector(1.0, 2.0, 3.0);
+       Vector original = new Vector(1.0, 2.0, 3.0);
 
-//        assertArrayEquals(new double[]{1.0, 2.0, 3.0}, vector.getEntries(), delta);
+       Vector copy = new Vector(original);
 
+       assertArrayEquals(original.getEntries(), copy.getEntries(), delta);
 
-//        Vector emptyVector = new Vector();
 
-//        assertEquals(0, emptyVector.length());
+       Vector emptyOriginal = new Vector();
 
-//    }
+       Vector emptyCopy = new Vector(emptyOriginal);
 
+       assertEquals(0, emptyCopy.length());
 
-//    @Test
+   }
 
-//    public void testCopyConstructor() {
 
-//        Vector original = new Vector(1.0, 2.0, 3.0);
+   // Getters Tests
 
-//        Vector copy = new Vector(original);
+   @Test
 
-//        assertArrayEquals(original.getEntries(), copy.getEntries(), delta);
+   public void testGetEntries() {
 
+       Vector vector = new Vector(1.0, 2.0, 3.0);
 
-//        Vector emptyOriginal = new Vector();
+       assertArrayEquals(new double[]{1.0, 2.0, 3.0}, vector.getEntries(), delta);
 
-//        Vector emptyCopy = new Vector(emptyOriginal);
 
-//        assertEquals(0, emptyCopy.length());
+       Vector emptyVector = new Vector();
 
-//    }
+       assertArrayEquals(new double[]{}, emptyVector.getEntries(), delta);
 
+   }
 
-//    // Getters Tests
 
-//    @Test
+   @Test
 
-//    public void testGetEntries() {
+   public void testGet() {
 
-//        Vector vector = new Vector(1.0, 2.0, 3.0);
+       Vector vector = new Vector(1.0, 2.0, 3.0);
 
-//        assertArrayEquals(new double[]{1.0, 2.0, 3.0}, vector.getEntries(), delta);
+       assertEquals(2.0, vector.get(1), delta);
 
 
-//        Vector emptyVector = new Vector();
+       // Additional test cases
 
-//        assertArrayEquals(new double[]{}, emptyVector.getEntries(), delta);
+       assertEquals(1.0, vector.get(0), delta);
 
-//    }
+       assertEquals(3.0, vector.get(2), delta);
 
+   }
 
-//    @Test
 
-//    public void testGet() {
+   // Setters Tests
 
-//        Vector vector = new Vector(1.0, 2.0, 3.0);
+   @Test
 
-//        assertEquals(2.0, vector.get(1), delta);
+   public void testSet() {
 
+       Vector vector = new Vector(1.0, 2.0, 3.0);
 
-//        // Additional test cases
+       Vector updatedVector = vector.set(1, 4.0);
 
-//        assertEquals(1.0, vector.get(0), delta);
+       assertArrayEquals(new double[]{1.0, 4.0, 3.0}, updatedVector.getEntries(), delta);
 
-//        assertEquals(3.0, vector.get(2), delta);
 
-//    }
+       // Additional test cases
 
+       Vector updatedVector2 = vector.set(0, 5.0);
 
-//    // Setters Tests
+       assertArrayEquals(new double[]{5.0, 2.0, 3.0}, updatedVector2.getEntries(), delta);
 
-//    @Test
+   }
 
-//    public void testSet() {
 
-//        Vector vector = new Vector(1.0, 2.0, 3.0);
+   @Test
 
-//        Vector updatedVector = vector.set(1, 4.0);
+   public void testSetEntries() {
 
-//        assertArrayEquals(new double[]{1.0, 4.0, 3.0}, updatedVector.getEntries(), delta);
+       Vector setEntriesVector = new Vector();
 
+       setEntriesVector.setEntries(new double[]{1.0, 2.0, 3.0});
 
-//        // Additional test cases
+       assertArrayEquals(new double[]{1.0, 2.0, 3.0}, setEntriesVector.getEntries(), delta);
 
-//        Vector updatedVector2 = vector.set(0, 5.0);
 
-//        assertArrayEquals(new double[]{5.0, 2.0, 3.0}, updatedVector2.getEntries(), delta);
+       // Additional test cases
 
-//    }
+       setEntriesVector.setEntries(new double[]{4.0, 5.0, 6.0});
 
+       assertArrayEquals(new double[]{4.0, 5.0, 6.0}, setEntriesVector.getEntries(), delta);
 
-//    @Test
+   }
 
-//    public void testSetEntries() {
 
-//        Vector setEntriesVector = new Vector();
+   // Identity Tests
 
-//        setEntriesVector.setEntries(new double[]{1.0, 2.0, 3.0});
+   @Test
 
-//        assertArrayEquals(new double[]{1.0, 2.0, 3.0}, setEntriesVector.getEntries(), delta);
+   public void testIdentityVector() {
 
+       Vector identityVector = Vector.identityVector(3);
 
-//        // Additional test cases
+       assertArrayEquals(new double[]{0.0, 0.0, 0.0}, identityVector.getEntries(), delta);
 
-//        setEntriesVector.setEntries(new double[]{4.0, 5.0, 6.0});
 
-//        assertArrayEquals(new double[]{4.0, 5.0, 6.0}, setEntriesVector.getEntries(), delta);
+       // Additional test cases
 
-//    }
+       Vector identityVector2 = Vector.identityVector(2);
 
+       assertArrayEquals(new double[]{0.0, 0.0}, identityVector2.getEntries(), delta);
 
-//    // Identity Tests
+   }
 
-//    @Test
 
-//    public void testIdentityVector() {
+   // Inverse Tests
 
-//        Vector identityVector = Vector.identityVector(3);
+   @Test
 
-//        assertArrayEquals(new double[]{0.0, 0.0, 0.0}, identityVector.getEntries(), delta);
+   public void testInverseVector() {
 
+       Vector inverseVector = new Vector(1.0, -2.0, 3.0);
 
-//        // Additional test cases
+       Vector inverse = inverseVector.inverseVector();
 
-//        Vector identityVector2 = Vector.identityVector(2);
+       assertArrayEquals(new double[]{-1.0, 2.0, -3.0}, inverse.getEntries(), delta);
 
-//        assertArrayEquals(new double[]{0.0, 0.0}, identityVector2.getEntries(), delta);
 
-//    }
+       // Additional test cases
 
+       Vector inverseVector2 = new Vector(0.0, 0.0, 0.0);
 
-//    // Inverse Tests
+       Vector inverse2 = inverseVector2.inverseVector();
 
-//    @Test
+       assertArrayEquals(new double[]{0.0, 0.0, 0.0}, inverse2.getEntries(), delta);
 
-//    public void testInverseVector() {
+   }
 
-//        Vector inverseVector = new Vector(1.0, -2.0, 3.0);
 
-//        Vector inverse = inverseVector.inverseVector();
+   // Is Canonical Basis Vector Tests
 
-//        assertArrayEquals(new double[]{-1.0, 2.0, -3.0}, inverse.getEntries(), delta);
+   @Test
 
+   public void testIsCanonicalBasisVector() {
 
-//        // Additional test cases
+       Vector canonicalBasisVector = Vector.identityVector(4);
 
-//        Vector inverseVector2 = new Vector(0.0, 0.0, 0.0);
+       assertEquals(false, canonicalBasisVector.isCanonicalBasisVector());
 
-//        Vector inverse2 = inverseVector2.inverseVector();
 
-//        assertArrayEquals(new double[]{0.0, 0.0, 0.0}, inverse2.getEntries(), delta);
+       // Additional test cases
 
-//    }
+       Vector canonicalBasisVector2 = new Vector(1.0, 0.0);
 
+       assertEquals(true, canonicalBasisVector2.isCanonicalBasisVector());
 
-//    // Is Canonical Basis Vector Tests
+   }
 
-//    @Test
 
-//    public void testIsCanonicalBasisVector() {
+   // Is Zero Tests
 
-//        Vector canonicalBasisVector = Vector.identityVector(4);
+   @Test
 
-//        assertEquals(false, canonicalBasisVector.isCanonicalBasisVector());
+   public void testIsZero() {
 
+       Vector zeroVector = new Vector(0.0, 0.0, 0.0);
 
-//        // Additional test cases
+       assertEquals(true, zeroVector.isZero());
 
-//        Vector canonicalBasisVector2 = new Vector(1.0, 0.0);
 
-//        assertEquals(true, canonicalBasisVector2.isCanonicalBasisVector());
+       // Additional test cases
 
-//    }
+       Vector nonZeroVector = new Vector(1.0, 2.0, 3.0);
 
+       assertEquals(false, nonZeroVector.isZero());
 
-//    // Is Zero Tests
+   }
 
-//    @Test
 
-//    public void testIsZero() {
+   // Length Tests
 
-//        Vector zeroVector = new Vector(0.0, 0.0, 0.0);
+   @Test
 
-//        assertEquals(true, zeroVector.isZero());
+   public void testLength() {
 
+       Vector lengthVector = new Vector(1.0, 2.0, 3.0);
 
-//        // Additional test cases
+       assertEquals(3, lengthVector.length());
 
-//        Vector nonZeroVector = new Vector(1.0, 2.0, 3.0);
 
-//        assertEquals(false, nonZeroVector.isZero());
+       // Additional test cases
 
-//    }
+       Vector lengthVector2 = new Vector(0.0, 0.0, 0.0);
 
+       assertEquals(3, lengthVector2.length());
 
-//    // Length Tests
+   }
 
-//    @Test
 
-//    public void testLength() {
+   // Magnitude Tests
 
-//        Vector lengthVector = new Vector(1.0, 2.0, 3.0);
+   @Test
 
-//        assertEquals(3, lengthVector.length());
+   public void testMagnitude() {
 
+       Vector magnitudeVector = new Vector(3.0, 4.0);
 
-//        // Additional test cases
+       assertEquals(5.0, magnitudeVector.magnitude(), delta);
 
-//        Vector lengthVector2 = new Vector(0.0, 0.0, 0.0);
 
-//        assertEquals(0, lengthVector2.length());
+       // Additional test cases
 
-//    }
+       Vector magnitudeVector2 = new Vector(0.0, 0.0, 0.0);
 
+       assertEquals(0.0, magnitudeVector2.magnitude(), delta);
 
-//    // Magnitude Tests
+   }
 
-//    @Test
 
-//    public void testMagnitude() {
+   // Normalize Tests
 
-//        Vector magnitudeVector = new Vector(3.0, 4.0);
+   @Test
+   public void testNormalize() {
 
-//        assertEquals(5.0, magnitudeVector.magnitude(), delta);
+       Vector normalizeVector = new Vector(3.0, 4.0);
 
+       Vector normalized = normalizeVector.normalize();
 
-//        // Additional test cases
+       assertEquals(1.0, normalized.magnitude(), delta);
 
-//        Vector magnitudeVector2 = new Vector(0.0, 0.0, 0.0);
+   }
 
-//        assertEquals(0.0, magnitudeVector2.magnitude(), delta);
+   @Test(expected = IllegalArgumentException.class)
+   public void testNormalizeException() {
 
-//    }
+        Vector normalizeVector2 = new Vector(0.0, 0.0, 0.0);
 
+        Vector normalized2 = normalizeVector2.normalize();
 
-//    // Normalize Tests
+        assertEquals(0.0, normalized2.magnitude(), delta);
 
-//    @Test
+   }
 
-//    public void testNormalize() {
 
-//        Vector normalizeVector = new Vector(3.0, 4.0);
+   // P Norm Tests
 
-//        Vector normalized = normalizeVector.normalize();
+   @Test
 
-//        assertEquals(1.0, normalized.magnitude(), delta);
+   public void testPNorm() {
 
+       Vector pNormVector = new Vector(1.0, 2.0, 3.0);
 
-//        // Additional test cases
+       assertEquals(6.0, pNormVector.pnorm(1), delta);
 
-//        Vector normalizeVector2 = new Vector(0.0, 0.0, 0.0);
 
-//        Vector normalized2 = normalizeVector2.normalize();
+       // Additional test cases
 
-//        assertEquals(0.0, normalized2.magnitude(), delta);
+       Vector pNormVector2 = new Vector(1.0, 1.0, 1.0);
 
-//    }
+       assertEquals(3.0, pNormVector2.pnorm(1), delta);
 
+   }
 
-//    // P Norm Tests
 
-//    @Test
+   // Add Tests
 
-//    public void testPNorm() {
+   @Test
 
-//        Vector pNormVector = new Vector(1.0, 2.0, 3.0);
+   public void testAdd() {
 
-//        assertEquals(3.0, pNormVector.pnorm(1), delta);
+       Vector addVector1 =
 
 
-//        // Additional test cases
+ new Vector(1.0, 2.0, 3.0);
 
-//        Vector pNormVector2 = new Vector(1.0, 1.0, 1.0);
+       Vector addVector2 = new Vector(4.0, 5.0, 6.0);
 
-//        assertEquals(3.0, pNormVector2.pnorm(1), delta);
+       Vector sum = addVector1.add(addVector2);
 
-//    }
+       assertArrayEquals(new double[]{5.0, 7.0, 9.0}, sum.getEntries(), delta);
 
 
-//    // Add Tests
+       // Additional test cases
 
-//    @Test
+       Vector addVector3 = new Vector(-1.0, -2.0, -3.0);
 
-//    public void testAdd() {
+       Vector sum2 = addVector1.add(addVector3);
 
-//        Vector addVector1 =
+       assertArrayEquals(new double[]{0.0, 0.0, 0.0}, sum2.getEntries(), delta);
 
+   }
 
-//  new Vector(1.0, 2.0, 3.0);
 
-//        Vector addVector2 = new Vector(4.0, 5.0, 6.0);
+   // Angle Tests
 
-//        Vector sum = addVector1.add(addVector2);
+   @Test
 
-//        assertArrayEquals(new double[]{5.0, 7.0, 9.0}, sum.getEntries(), delta);
+   public void testAngleDegrees() {
 
+       Vector angleVector1 = new Vector(1.0, 0.0, 0.0);
 
-//        // Additional test cases
+       Vector angleVector2 = new Vector(0.0, 1.0, 0.0);
 
-//        Vector addVector3 = new Vector(-1.0, -2.0, -3.0);
+       assertEquals(90.0, Vector.angleDegrees(angleVector1, angleVector2), delta);
 
-//        Vector sum2 = addVector1.add(addVector3);
 
-//        assertArrayEquals(new double[]{0.0, 0.0, 0.0}, sum2.getEntries(), delta);
+       // Additional test cases
 
-//    }
+       Vector angleVector3 = new Vector(1.0, 1.0, 0.0);
 
+       assertEquals(45.0, Vector.angleDegrees(angleVector1, angleVector3), delta);
 
-//    // Angle Tests
+   }
 
-//    @Test
 
-//    public void testAngleDegrees() {
+   @Test
 
-//        Vector angleVector1 = new Vector(1.0, 0.0, 0.0);
+   public void testAngleRadians() {
 
-//        Vector angleVector2 = new Vector(0.0, 1.0, 0.0);
+       Vector angleVector1 = new Vector(1.0, 0.0, 0.0);
 
-//        assertEquals(90.0, Vector.angleDegrees(angleVector1, angleVector2), delta);
+       Vector angleVector2 = new Vector(0.0, 1.0, 0.0);
 
+       assertEquals(Math.PI / 2, Vector.angleRadians(angleVector1, angleVector2), delta);
 
-//        // Additional test cases
 
-//        Vector angleVector3 = new Vector(1.0, 1.0, 0.0);
+       // Additional test cases
 
-//        assertEquals(45.0, Vector.angleDegrees(angleVector1, angleVector3), delta);
+       Vector angleVector3 = new Vector(1.0, 1.0, 0.0);
 
-//    }
+       assertEquals(Math.PI / 4, Vector.angleRadians(angleVector1, angleVector3), delta);
 
+   }
 
-//    @Test
 
-//    public void testAngleRadians() {
+   // Cross Product Tests
 
-//        Vector angleVector1 = new Vector(1.0, 0.0, 0.0);
+   @Test
 
-//        Vector angleVector2 = new Vector(0.0, 1.0, 0.0);
+   public void testCross() {
 
-//        assertEquals(Math.PI / 2, Vector.angleRadians(angleVector1, angleVector2), delta);
+        Vector crossVector1 = new Vector(1.0, 0.0, 0.0);
 
+        Vector crossVector2 = new Vector(0.0, 1.0, 0.0);
 
-//        // Additional test cases
+        Vector crossVector3 = new Vector(1.0, 1.0, 0.0);
 
-//        Vector angleVector3 = new Vector(1.0, 1.0, 0.0);
+        // Base test case
+        
+        Vector crossProduct1 = crossVector1.cross(crossVector2);
 
-//        assertEquals(Math.PI / 4, Vector.angleRadians(angleVector1, angleVector3), delta);
+        assertArrayEquals(new double[]{0.0, 0.0, 1.0}, crossProduct1.getEntries(), delta);
 
-//    }
+        // Additional test cases
 
+        Vector crossProduct2 = crossVector1.cross(crossVector3);
 
-//    // Cross Product Tests
+        assertArrayEquals(new double[]{0.0, 0.0, 1.0}, crossProduct2.getEntries(), delta);
 
-//    @Test
+    }
 
-//    public void testCross() {
 
-//        Vector crossVector1 = new Vector(1.0, 0.0, 0.0);
+   // Dot Product Tests
 
-//        Vector crossVector2 = new Vector(0.0, 1.0, 0.0);
+   @Test
 
-//        Vector crossProduct = crossVector1.cross(crossVector2);
+   public void testDot() {
 
-//        assertArrayEquals(new double[]{0.0, 0.0, 1.0}, crossProduct.getEntries(), delta);
+       Vector dotVector1 = new Vector(1.0, 2.0, 3.0);
 
+       Vector dotVector2 = new Vector(4.0, 5.0, 6.0);
 
-//        // Additional test cases
+       assertEquals(32.0, dotVector1.dot(dotVector2), delta);
 
-//        Vector crossVector3 = new Vector(1.0, 1.0, 0.0);
 
-//        Vector crossProduct2 = crossVector1.cross(crossVector3);
+       // Additional test cases
 
-//        assertArrayEquals(new double[]{0.0, 0.0, 0.0}, crossProduct2.getEntries(), delta);
+       Vector dotVector3 = new Vector(0.0, 0.0, 0.0);
 
-//    }
+       assertEquals(0.0, dotVector1.dot(dotVector3), delta);
 
+   }
 
-//    // Dot Product Tests
 
-//    @Test
+   // Subtract Tests
 
-//    public void testDot() {
+   @Test
 
-//        Vector dotVector1 = new Vector(1.0, 2.0, 3.0);
+   public void testSubtract() {
 
-//        Vector dotVector2 = new Vector(4.0, 5.0, 6.0);
+       Vector subtractVector1 = new Vector(1.0, 2.0, 3.0);
 
-//        assertEquals(32.0, dotVector1.dot(dotVector2), delta);
+       Vector subtractVector2 = new Vector(2.0, 3.0, 4.0);
 
+       Vector difference = subtractVector1.subtract(subtractVector2);
 
-//        // Additional test cases
+       assertArrayEquals(new double[]{-1.0, -1.0, -1.0}, difference.getEntries(), delta);
 
-//        Vector dotVector3 = new Vector(0.0, 0.0, 0.0);
 
-//        assertEquals(0.0, dotVector1.dot(dotVector3), delta);
+       // Additional test cases
 
-//    }
+       Vector subtractVector3 = new Vector(2.0, 2.0, 2.0);
 
+       Vector difference2 = subtractVector1.subtract(subtractVector3);
 
-//    // Subtract Tests
+       assertArrayEquals(new double[]{-1.0, 0.0, 1.0}, difference2.getEntries(), delta);
 
-//    @Test
+   }
 
-//    public void testSubtract() {
 
-//        Vector subtractVector1 = new Vector(1.0, 2.0, 3.0);
+   // Linear Combination Tests
 
-//        Vector subtractVector2 = new Vector(2.0, 3.0, 4.0);
+   @Test
 
-//        Vector difference = subtractVector1.subtract(subtractVector2);
+   public void testLinearCombination() {
 
-//        assertArrayEquals(new double[]{-1.0, -1.0, -1.0}, difference.getEntries(), delta);
+       Vector[] vectors = {
 
+           new Vector(1.0, 2.0),
 
-//        // Additional test cases
+           new Vector(3.0, 4.0)
 
-//        Vector subtractVector3 = new Vector(2.0, 2.0, 2.0);
+       };
 
-//        Vector difference2 = subtractVector1.subtract(subtractVector3);
+       double[] weights = {2.0, -1.0};
 
-//        assertArrayEquals(new double[]{-1.0, 0.0, 1.0}, difference2.getEntries(), delta);
+       Vector linearCombination = Vector.linearCombination(vectors, weights);
 
-//    }
+       assertArrayEquals(new double[]{-1.0, 0.0}, linearCombination.getEntries(), delta);
 
 
-//    // Linear Combination Tests
+       // Additional test cases
 
-//    @Test
+       Vector[] vectors2 = {
 
-//    public void testLinearCombination() {
+           new Vector(1.0, 2.0),
 
-//        Vector[] vectors = {
+           new Vector(3.0, 4.0),
 
-//            new Vector(1.0, 2.0),
+           new Vector(5.0, 6.0)
 
-//            new Vector(3.0, 4.0)
+       };
 
-//        };
+       double[] weights2 = {1.0, 2.0, -1.0};
 
-//        double[] weights = {2.0, -1.0};
+       Vector linearCombination2 = Vector.linearCombination(vectors2, weights2);
 
-//        Vector linearCombination = Vector.linearCombination(vectors, weights);
+       assertArrayEquals(new double[]{2.0, 4.0}, linearCombination2.getEntries(), delta);
 
-//        assertArrayEquals(new double[]{-1.0, 0.0}, linearCombination.getEntries(), delta);
+   }
 
 
-//        // Additional test cases
+   // Multiply Tests
 
-//        Vector[] vectors2 = {
+   @Test
 
-//            new Vector(1.0, 2.0),
+   public void testMultiply() {
 
-//            new Vector(3.0, 4.0),
+       Vector multiplyVector = new Vector(1.0, 2.0, 3.0);
 
-//            new Vector(5.0, 6.0)
+       Vector product = multiplyVector.multiply(2.0);
 
-//        };
+       assertArrayEquals(new double[]{2.0, 4.0, 6.0}, product.getEntries(), delta);
 
-//        double[] weights2 = {1.0, 2.0, -1.0};
 
-//        Vector linearCombination2 = Vector.linearCombination(vectors2, weights2);
+       // Additional test cases
 
-//        assertArrayEquals(new double[]{1.0, 2.0}, linearCombination2.getEntries(), delta);
+       Vector multiplyVector2 = new Vector(0.0, 0.0, 0.0);
 
-//    }
+       Vector product2 = multiplyVector2.multiply(5.0);
 
+       assertArrayEquals(new double[]{0.0, 0.0, 0.0}, product2.getEntries(), delta);
 
-//    // Multiply Tests
+   }
 
-//    @Test
 
-//    public void testMultiply() {
+   // Scalar Triple Product Tests
 
-//        Vector multiplyVector = new Vector(1.0, 2.0, 3.0);
+   @Test
 
-//        Vector product = multiplyVector.multiply(2.0);
+   public void testScalarTripleProduct() {
 
-//        assertArrayEquals(new double[]{2.0, 4.0, 6.0}, product.getEntries(), delta);
+       Vector a = new Vector(1.0, 2.0, 3.0);
 
+       Vector b = new Vector(4.0, 5.0, 6.0);
 
-//        // Additional test cases
+       Vector c = new Vector(7.0, 8.0, 9.0);
 
-//        Vector multiplyVector2 = new Vector(0.0, 0.0, 0.0);
+       double scalarTripleProduct = Vector.scalarTripleProduct(a, b, c);
 
-//        Vector product2 = multiplyVector2.multiply(5.0);
+       assertEquals(0.0, scalarTripleProduct, delta);
 
-//        assertArrayEquals(new double[]{0.0, 0.0, 0.0}, product2.getEntries(), delta);
 
-//    }
+       // Additional test cases
 
+       Vector a2 = new Vector(1.0, 0.0, 0.0);
 
-//    // Scalar Triple Product Tests
+       Vector b2 = new Vector(0.0, 1.0, 0.0);
 
-//    @Test
+       Vector c2 = new Vector(0.0, 0.0, 1.0);
 
-//    public void testScalarTripleProduct() {
+       double scalarTripleProduct2 = Vector.scalarTripleProduct(a2, b2, c2);
 
-//        Vector a = new Vector(1.0, 2.0, 3.0);
+       assertEquals(1.0, scalarTripleProduct2, delta);
 
-//        Vector b = new Vector(4.0, 5.0, 6.0);
+   }
 
-//        Vector c = new Vector(7.0, 8.0, 9.0);
+   // Outer Product Tests
 
-//        double scalarTripleProduct = Vector.scalarTripleProduct(a, b, c);
+   @Test
 
-//        assertEquals(0.0, scalarTripleProduct, delta);
+   public void testOuterProduct() {
 
+      Vector outerVector1 = new Vector(1.0, 2.0);
 
-//        // Additional test cases
+      Vector outerVector2 = new Vector(3.0, 4.0);
 
-//        Vector a2 = new Vector(1.0, 0.0, 0.0);
+      Matrix outerProduct = outerVector1.outerProduct(outerVector2);
 
-//        Vector b2 = new Vector(0.0, 1.0, 0.0);
+      assertArrayEquals(new double[]{3.0, 4.0}, outerProduct.getRow(0).getEntries(), delta);
 
-//        Vector c2 = new Vector(0.0, 0.0, 1.0);
+      assertArrayEquals(new double[]{6.0, 8.0}, outerProduct.getRow(1).getEntries(), delta);
 
-//        double scalarTripleProduct2 = Vector.scalarTripleProduct(a2, b2, c2);
 
-//        assertEquals(1.0, scalarTripleProduct2, delta);
+   // Add more test cases for the outerProduct method
 
-//    }
+   }
 
+   // Orthogonal Projection Tests
 
+   @Test
 
+   public void testOrthogonalProjection() {
 
-// /*
+       Vector projectionVector1 = new Vector(3.0, 4.0);
 
-//    // Outer Product Tests
+       Vector projectionVector2 = new Vector(1.0, 1.0);
 
-//    @Test
+       Vector projection = projectionVector1.orthogonalProjection(projectionVector2);
 
-//    public void testOuterProduct() {
+       assertArrayEquals(new double[]{3.5, 3.5}, projection.getEntries(), delta);
 
-//       Vector outerVector1 = new Vector(1.0, 2.0);
 
-//       Vector outerVector2 = new Vector(3.0, 4.0);
+       // Add more test cases for the orthogonalProjection method
 
-//       Matrix outerProduct = outerVector1.outerProduct(outerVector2);
+   }
 
-//       assertArrayEquals(new double[]{3.0, 4.0}, outerProduct.getRow(0), delta);
-
-//       assertArrayEquals(new double[]{6.0, 8.0}, outerProduct.getRow(1), delta);
-
-
-//    // Add more test cases for the outerProduct method
-
-//    }
-
-// */
-
-
-//    // Orthogonal Projection Tests
-
-//    @Test
-
-//    public void testOrthogonalProjection() {
-
-//        Vector projectionVector1 = new Vector(3.0, 4.0);
-
-//        Vector projectionVector2 = new Vector(1.0, 1.0);
-
-//        Vector projection = projectionVector1.orthogonalProjection(projectionVector2);
-
-//        assertArrayEquals(new double[]{3.5, 3.5}, projection.getEntries(), delta);
-
-
-//        // Add more test cases for the orthogonalProjection method
-
-//    }
-
-// }
+}
 
 
 

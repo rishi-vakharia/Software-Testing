@@ -195,7 +195,7 @@ public class MatrixTest {
             {0, 0, 0, 4}
         };
         Matrix matrix3 = new Matrix(entries3);
-        assertFalse(matrix3.isSparse());
+        assertTrue(matrix3.isSparse());
 
         // Edge case 4: 3x3 matrix with specified proportion
         double[][] entries4 = {
@@ -204,7 +204,7 @@ public class MatrixTest {
             {0.7, 0.8, 0.9}
         };
         Matrix matrix4 = new Matrix(entries4);
-        assertTrue(matrix4.isSparse(0.5));
+        assertFalse(matrix4.isSparse(0.5));
 
         // Edge case 5: 2x2 matrix with specified proportion
         double[][] entries5 = {

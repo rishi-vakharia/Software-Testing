@@ -120,7 +120,7 @@ public class Vector {
          throw new IllegalArgumentException("Index is out of range");
       }
    
-      double[] entries = new double[u.entries.length];
+      double[] entries = u.getEntries().clone();
       entries[index] = value;
       
       return new Vector(entries);

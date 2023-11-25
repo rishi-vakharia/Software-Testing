@@ -51,12 +51,14 @@ public class Matrix {
          }
       }
    }
-    public double[][] getEntries() {
-    return this.entries;
-}
 
    // *****************************************************************
    // *****************************************************************
+
+   // TODO: don't return the reference, return a copy
+   public double[][] getEntries() {
+      return this.entries;
+   }
 
    /**
     * minorMatrix accepts a row and a column, and returns the Matrix object
