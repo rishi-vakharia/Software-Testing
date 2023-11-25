@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: linearalgebra.VectorTest
+-------------------------------------------------------------------------------
+Tests run: 24, Failures: 5, Errors: 1, Skipped: 0, Time elapsed: 0.05 s <<< FAILURE! - in linearalgebra.VectorTest
+testSet(linearalgebra.VectorTest)  Time elapsed: 0.005 s  <<< FAILURE!
+org.junit.internal.ArrayComparisonFailure: arrays first differed at element [0]; expected:<1.0> but was:<0.0>
+	at linearalgebra.VectorTest.testSet(VectorTest.java:109)
+
+testCross(linearalgebra.VectorTest)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.internal.ArrayComparisonFailure: arrays first differed at element [2]; expected:<0.0> but was:<1.0>
+	at linearalgebra.VectorTest.testCross(VectorTest.java:401)
+
+testPNorm(linearalgebra.VectorTest)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<3.0> but was:<6.0>
+	at linearalgebra.VectorTest.testPNorm(VectorTest.java:297)
+
+testLinearCombination(linearalgebra.VectorTest)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.internal.ArrayComparisonFailure: arrays first differed at element [0]; expected:<1.0> but was:<2.0>
+	at linearalgebra.VectorTest.testLinearCombination(VectorTest.java:491)
+
+testNormalize(linearalgebra.VectorTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalArgumentException
+	at linearalgebra.VectorTest.testNormalize(VectorTest.java:282)
+
+testLength(linearalgebra.VectorTest)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<3>
+	at linearalgebra.VectorTest.testLength(VectorTest.java:240)
+
