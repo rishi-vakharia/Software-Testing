@@ -8,6 +8,10 @@
 
 * Output html report will be in target/pit-reports
 
+# To run Main file
+
+* ```java -cp ./target/project-1.0-SNAPSHOT.jar linearalgebra.Main```
+
 # linearalgebra
 A linear algebra package in Java.
 

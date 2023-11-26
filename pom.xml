@@ -75,6 +75,25 @@
           <groupId>org.pitest</groupId>
           <artifactId>pitest-maven</artifactId>
           <version>LATEST</version>
+          <configuration>
+
+            <targetClasses>
+              <!-- The classes to be mutated. -->
+              <param>linearalgebra.Vector</param>
+              <param>linearalgebra.Matrix</param>
+            </targetClasses>
+
+            <targetTests>
+              <!-- The tests to run. -->
+              <param>linearalgebra.VectorTest</param>
+              <param>linearalgebra.MatrixTest</param>
+            </targetTests>
+
+            <mutators>
+              <!-- The mutation operators to apply. -->
+              <mutator>CONDITIONALS_BOUNDARY</mutator>
+            </mutators>
+          </configuration>
         </plugin>
 
       </plugins>
