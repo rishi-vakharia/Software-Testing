@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: linearalgebra.MatrixTest
 -------------------------------------------------------------------------------
-Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in linearalgebra.MatrixTest
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in linearalgebra.MatrixTest

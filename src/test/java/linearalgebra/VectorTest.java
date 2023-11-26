@@ -178,7 +178,7 @@ public class VectorTest {
 		assertEquals(6.0, v.pnorm(1), delta);
 	}
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testPNormException() {
 		Vector v = new Vector(1.0, 2.0, 3.0);
 		v.pnorm(0.6);
@@ -210,7 +210,7 @@ public class VectorTest {
 	public void testCheckLengthsPositive() {
 		Vector v1 = new Vector(1,2,3);
 		Vector v2 = new Vector(4,5,6);
-		assertEquals(null, Vector.checkLengths(v1, v2));
+		Vector.checkLengths(v1, v2);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -228,7 +228,7 @@ public class VectorTest {
 		assertArrayEquals(new double[]{0.0, 0.0, 1.0}, crossprod.getEntries(), delta);
 	}
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testCrossException() {
 		// length should be 3 for cross product
 		Vector v1 = new Vector(1.0, 0.0, 0.0, 4.0);

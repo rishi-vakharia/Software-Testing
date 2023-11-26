@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="linearalgebra.MatrixTest" time="0.004" tests="23" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="linearalgebra.MatrixTest" time="0.001" tests="23" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/surefire/surefirebooter13078222600583640179.jar /home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/surefire 2023-11-26T18-15-44_704-jvmRun1 surefire1760248654683420314tmp surefire_013798816844344211351tmp"/>
+    <property name="sun.java.command" value="/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/surefire/surefirebooter6005621159787734804.jar /home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/surefire 2023-11-26T19-19-37_142-jvmRun1 surefire1177013698295551698tmp surefire_08960207541028181297tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/test-classes:/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/classes:/home/rishi/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/rishi/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -32,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/surefire/surefirebooter13078222600583640179.jar"/>
+    <property name="surefire.real.class.path" value="/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/surefire/surefirebooter6005621159787734804.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.20.1+1-post-Ubuntu-0ubuntu122.04"/>
     <property name="user.name" value="rishi"/>
@@ -70,9 +70,9 @@
   <testcase name="testDeterminant" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testFromRowVectors" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testDropColumn" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testGetNumColumns" classname="linearalgebra.MatrixTest" time="0.001"/>
+  <testcase name="testGetNumColumns" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testIsSparse" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testGetColumn" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testGetColumn" classname="linearalgebra.MatrixTest" time="0.001"/>
   <testcase name="testMinorMatrix" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testIsLowerTriangular" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testMultiply" classname="linearalgebra.MatrixTest" time="0"/>
