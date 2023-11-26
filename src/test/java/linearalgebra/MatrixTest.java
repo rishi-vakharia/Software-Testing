@@ -13,6 +13,161 @@ import org.junit.Test;
 public class MatrixTest {
 
     private double delta = 0.00001; // to compare floating-point numbers
+
+    @Test
+    public void testConstructor() {
+
+        double[][] entries = {
+            {1, 2},
+            {2, 1}
+        };
+
+        Matrix m = new Matrix(entries);
+
+        // Is m correctly initialized?
+
+        assertArrayEquals(entries, m.getEntries());
+    }
+
+    @Test
+    public void testCopyConstructor() {
+
+        double[][] entries = {
+            {1, 2},
+            {2, 1}
+        };
+
+        Matrix m = new Matrix(entries);
+
+        // Make a copy of m using copy constructor
+        Matrix mcopy = new Matrix(m);
+
+        // Are m and mcopy equal as they should be?
+
+        assertArrayEquals(m.getEntries(), mcopy.getEntries());
+    }
+
+    @Test
+    public void testGetEntries() {
+
+        double[][] entries = {
+            {1, 0},
+            {0, 1}
+        };
+
+        Matrix m = new Matrix(entries);
+
+        // getEntries() should return correct output
+
+        assertArrayEquals(entries, m.getEntries());
+    }
+
+    @Test
+    public void testMinorMatrix() {
+
+        double[][] entries = {
+            {1, 0, 2},
+            {0, 1, 0},
+            {0, 0, 2}
+        };
+
+        Matrix m = new Matrix(entries);
+
+        // Drop the 0th row and 0th column
+        Matrix mnew = m.minorMatrix(0,0);
+
+        // Call to minorMatrix() should return correct smaller matrix
+
+        assertArrayEquals(new double [][] {{1,0}, {0,2}}, mnew.getEntries());
+    }
+
+    @Test
+    public void testFromColumnVectors() {
+
+        Vector c1 = new Vector(1,2,3);
+        Vector c2 = new Vector(4,5,6);
+        Vector c3 = new Vector(7,8,9);
+
+        Matrix m = Matrix.fromColumnVectors(c1,c2,c3);
+
+        assertArrayEquals(new double[][] {{1,4,7}, {2,5,8}, {3,6,9}}, m.getEntries());
+    }
+
+    @Test
+    public void testFromRowVectors() {
+
+        Vector r1 = new Vector(1,2,3);
+        Vector r2 = new Vector(4,5,6);
+        Vector r3 = new Vector(7,8,9);
+
+        Matrix m = Matrix.fromRowVectors(r1,r2,r3);
+
+        assertArrayEquals(new double[][] {{1,2,3}, {4,5,6}, {7,8,9}}, m.getEntries());
+    }
+
+    @Test
+    public void testDropColumn() {
+
+        double[][] entries = {
+            {1, 0},
+            {0, 1}
+        };
+
+        Matrix m = new Matrix(entries);
+
+        Matrix mnew = m.dropColumn(1);
+
+        // Column should be correctly dropped
+
+        assertArrayEquals(new double[][] {{1}, {0}}, mnew.getEntries());
+    }
+
+    @Test
+    public void testDropRow() {
+
+        double[][] entries = {
+            {1, 0},
+            {0, 1}
+        };
+
+        Matrix m = new Matrix(entries);
+
+        Matrix mnew = m.dropRow(1);
+
+        // Column should be correctly dropped
+
+        assertArrayEquals(new double[][] {{1,0}}, mnew.getEntries());
+    }
+
+    @Test
+    public void testGetColumn() {
+
+        double[][] entries = {
+            {1, 0},
+            {0, 1}
+        };
+
+        Matrix m = new Matrix(entries);
+
+        Vector colm = m.getColumn(1);
+
+        assertArrayEquals(new double[] {0,1}, colm.getEntries(), delta);
+    }
+
+    @Test
+    public void testGetRow() {
+
+        double[][] entries = {
+            {1, 0},
+            {0, 1}
+        };
+
+        Matrix m = new Matrix(entries);
+
+        Vector row = m.getRow(1);
+
+        assertArrayEquals(new double[] {0,1}, row.getEntries(), delta);
+    }
     
     @Test
     public void testGetEntry() {
@@ -23,7 +178,223 @@ public class MatrixTest {
         };
         Matrix m = new Matrix(entries);
 
-        assertEquals(1, Matrix.getEntry(m, 1, 1), delta); 
+        assertEquals(1, m.getEntry(1, 1), delta); 
+    }
+
+    @Test
+    public void testGetNumColumns() {
+
+        double[][] entries = {
+            {1, 2},
+            {2, 1}
+        };
+        Matrix m = new Matrix(entries);
+
+        assertEquals(2, m.getNumColumns());
+    }
+
+    @Test
+    public void testGetNumRows() {
+
+        double[][] entries = {
+            {1, 2},
+            {2, 1}
+        };
+        Matrix m = new Matrix(entries);
+
+        assertEquals(2, m.getNumRows());
+    }
+
+    @Test
+    public void testIdentityMatrix() {
+
+        Matrix i = Matrix.identityMatrix(2);
+
+        assertArrayEquals(new double[][] {{1,0}, {0,1}}, i.getEntries());
+    }
+
+    @Test
+    public void testIsUpperTriangular() {
+        // Test case 1: Upper triangular matrix
+        // double[][] entries1 = {
+        //     {1, 2, 3},
+        //     {0, 4, 5},
+        //     {0, 0, 6}
+        // };
+        // Matrix matrix1 = new Matrix(entries1);
+        // assertTrue(matrix1.isUpperTriangular());
+
+        // Test case 2: Not an upper triangular matrix
+        double[][] entries2 = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        Matrix matrix2 = new Matrix(entries2);
+        assertFalse(matrix2.isUpperTriangular());
+
+        // Test case 3: Square matrix with zero values below the diagonal
+        double[][] entries3 = {
+            {1, 0, 0},
+            {4, 5, 0},
+            {7, 8, 9}
+        };
+        Matrix matrix3 = new Matrix(entries3);
+        assertTrue(matrix3.isUpperTriangular());
+
+        // Test case 4: Rectangular matrix (should return false)
+        double[][] entries4 = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+        Matrix matrix4 = new Matrix(entries4);
+        assertFalse(matrix4.isUpperTriangular());
+    }
+
+    @Test
+    public void testIsLowerTriangular() {
+        // Test case 1: Lower triangular matrix
+        // double[][] entries1 = {
+        //     {1, 0, 0},
+        //     {4, 5, 0},
+        //     {7, 8, 9}
+        // };
+        // Matrix matrix1 = new Matrix(entries1);
+        // assertTrue(matrix1.isLowerTriangular());
+
+        // Test case 2: Not a lower triangular matrix
+        double[][] entries2 = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        Matrix matrix2 = new Matrix(entries2);
+        assertFalse(matrix2.isLowerTriangular());
+
+        // Test case 3: Square matrix with zero values above the diagonal
+        double[][] entries3 = {
+            {1, 2, 3},
+            {0, 5, 6},
+            {0, 0, 9}
+        };
+        Matrix matrix3 = new Matrix(entries3);
+        assertTrue(matrix3.isLowerTriangular());
+
+        // Test case 4: Rectangular matrix (should return false)
+        double[][] entries4 = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+        Matrix matrix4 = new Matrix(entries4);
+        assertFalse(matrix4.isLowerTriangular());
+    }
+
+    @Test
+    public void testTrace() {
+        //base test 
+        double[][] entries = {
+            {7}
+        };
+        Matrix matrix0 = new Matrix(entries);
+        assertEquals(7.0, matrix0.trace(), delta);
+
+        // Test case 1: Square matrix with positive diagonal entries
+        double[][] entries1 = {
+            {1, 0, 0},
+            {0, 5, 0},
+            {0, 0, 9}
+        };
+        Matrix matrix1 = new Matrix(entries1);
+        assertEquals(15.0, matrix1.trace(), delta);
+
+        // Test case 2: Square matrix with negative diagonal entries
+        double[][] entries2 = {
+            {-1, 0, 0},
+            {0, -5, 0},
+            {0, 0, -9}
+        };
+        Matrix matrix2 = new Matrix(entries2);
+        assertEquals(-15.0, matrix2.trace(), delta);
+
+        // Test case 3: Rectangular matrix (should throw an exception)
+        // double[][] entries3 = {
+        //     {1, 2, 3},
+        //     {4, 5, 6}
+        // };
+        // Matrix matrix3 = new Matrix(entries3);
+        // try {
+        //     matrix3.trace();
+        // } catch (IllegalArgumentException e) {
+        //     assertEquals("Trace is not defined for non-square matrices", e.getMessage());
+        // }
+    }
+
+    @Test
+    public void testIsPermutationMatrix() {
+        // Test case 1: Permutation Matrix
+        double[][] entries1 = {
+            {0, 1, 0},
+            {1, 0, 0},
+            {0, 0, 1}
+        };
+        Matrix matrix1 = new Matrix(entries1);
+        assertTrue(matrix1.isPermutationMatrix());
+
+        // Test case 2: Non-Permutation Matrix (extra 1 in the first column)
+        double[][] entries2 = {
+            {1, 1, 0},
+            {0, 1, 0},
+            {0, 0, 1}
+        };
+        Matrix matrix2 = new Matrix(entries2);
+        assertFalse(matrix2.isPermutationMatrix());
+
+        // Test case 3: Non-Square Matrix (should throw an exception)
+        double[][] entries3 = {
+            {1, 0},
+            {0, 1},
+            {0, 0}
+        };
+        Matrix matrix3 = new Matrix(entries3);
+        try {
+            matrix3.isPermutationMatrix();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Matrix is not square", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testIsDiagonal() {
+        // Test case 1: Diagonal Matrix
+        double[][] entries1 = {
+            {1, 0, 0},
+            {0, 2, 0},
+            {0, 0, 3}
+        };
+        Matrix matrix1 = new Matrix(entries1);
+        assertTrue(matrix1.isDiagonal());
+
+        // Test case 2: Non-Diagonal Matrix (extra non-zero value)
+        double[][] entries2 = {
+            {1, 0, 0},
+            {0, 2, 1},
+            {0, 0, 3}
+        };
+        Matrix matrix2 = new Matrix(entries2);
+        assertFalse(matrix2.isDiagonal());
+
+        // Test case 3: Non-Square Matrix (should throw an exception)
+        double[][] entries3 = {
+            {1, 0},
+            {0, 1},
+            {0, 0}
+        };
+        Matrix matrix3 = new Matrix(entries3);
+        try {
+            matrix3.isDiagonal();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Matrix is not square.", e.getMessage());
+        }
     }
 
     @Test

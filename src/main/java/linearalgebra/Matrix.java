@@ -55,9 +55,9 @@ public class Matrix {
    // *****************************************************************
    // *****************************************************************
 
-   // TODO: don't return the reference, return a copy
+   // Returning copy of entries, instead of reference
    public double[][] getEntries() {
-      return this.entries;
+      return this.entries.clone();
    }
 
    /**
