@@ -1,18 +1,38 @@
-# Step to run
+# Mutation testing applied on the linearalgebra library
 
-* mvn test
+## Project management
 
-# To run mutation test
+* The project is managed with Maven
 
-* ```mvn -DwithHistory test-compile org.pitest:pitest-maven:mutationCoverage```
+## Unit testing
 
-* Output html report will be in target/pit-reports
+* The code was unit tested using JUnit
 
-# To run Main file
+* To run the unit tests, run the following command:
 
-* ```java -cp ./target/project-1.0-SNAPSHOT.jar linearalgebra.Main```
+   ```mvn test```
 
-# linearalgebra
+## Mutation testing
+
+* Mutation testing was applied on the project using PIT Mutation Testing tool
+
+* To run the mutation tests, run the following command:
+
+  ```mvn -DwithHistory test-compile org.pitest:pitest-maven:mutationCoverage``` 
+
+* This will generate an HTML report of mutation testing inside the target/pit-reports folder
+
+## Driver code
+
+* Demo driver code is written in Main.java to get familiar with the linearalgebra library
+
+* To run the Main.java file, run the following commands:
+
+  ```mvn package```
+
+  ```java -cp ./target/project-1.0-SNAPSHOT.jar linearalgebra.Main```
+
+# linearalgebra (library description)
 A linear algebra package in Java.
 
 For flexibility, most methods are overloaded to include both `static` versions (which require the object as the first parameter) and instance methods. The `static` method does the heavy lifting, and the instance method is a wrapper for the `static` method using `this` as an argument (e.g. `Matrix.transpose(this)`).
