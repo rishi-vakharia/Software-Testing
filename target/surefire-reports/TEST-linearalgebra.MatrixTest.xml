@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="linearalgebra.MatrixTest" time="0.001" tests="23" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="linearalgebra.MatrixTest" time="0.066" tests="87" errors="1" skipped="0" failures="6">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.specification.version" value="11"/>
     <property name="sun.cpu.isalist" value=""/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/test-classes:/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/classes:/home/rishi/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/rishi/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="java.class.path" value="/home/pratham/ST project/ST-Project/target/test-classes:/home/pratham/ST project/ST-Project/target/classes:/home/pratham/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/pratham/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="java.vm.vendor" value="Ubuntu"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://ubuntu.com/"/>
@@ -16,36 +16,36 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/surefire/surefirebooter10752221853839183553.jar /home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/surefire 2023-11-26T19-43-18_660-jvmRun1 surefire15698839267243953840tmp surefire_015164827330017330398tmp"/>
+    <property name="sun.java.command" value="/home/pratham/ST project/ST-Project/target/surefire/surefirebooter1347087130695611312.jar /home/pratham/ST project/ST-Project/target/surefire 2023-11-26T22-22-47_439-jvmRun1 surefire5003376136555770429tmp surefire_0365945483595495896tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/test-classes:/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/classes:/home/rishi/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/rishi/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="surefire.test.class.path" value="/home/pratham/ST project/ST-Project/target/test-classes:/home/pratham/ST project/ST-Project/target/classes:/home/pratham/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/pratham/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="/home/rishi"/>
+    <property name="user.home" value="/home/pratham"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.version.date" value="2023-08-24"/>
     <property name="java.home" value="/usr/lib/jvm/java-11-openjdk-amd64"/>
     <property name="file.separator" value="/"/>
-    <property name="basedir" value="/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub"/>
+    <property name="basedir" value="/home/pratham/ST project/ST-Project"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub/target/surefire/surefirebooter10752221853839183553.jar"/>
+    <property name="surefire.real.class.path" value="/home/pratham/ST project/ST-Project/target/surefire/surefirebooter1347087130695611312.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.20.1+1-post-Ubuntu-0ubuntu122.04"/>
-    <property name="user.name" value="rishi"/>
+    <property name="user.name" value="pratham"/>
     <property name="path.separator" value=":"/>
     <property name="os.version" value="6.2.0-37-generic"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="localRepository" value="/home/rishi/.m2/repository"/>
+    <property name="localRepository" value="/home/pratham/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-lts"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="java.version" value="11.0.20.1"/>
-    <property name="user.dir" value="/home/rishi/Desktop/SEM-7/ST/ST_Project/GitHub"/>
+    <property name="user.dir" value="/home/pratham/ST project/ST-Project"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
@@ -58,27 +58,118 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testIsDiagonal" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSetColumn_Array" classname="linearalgebra.MatrixTest" time="0.003"/>
+  <testcase name="testToRowVectors" classname="linearalgebra.MatrixTest" time="0.004">
+    <failure message="arrays first differed at element [0]; expected: linearalgebra.Vector&lt;[1.0, 2.0, 3.0]&gt; but was: linearalgebra.Vector&lt;[1.0, 2.0, 3.0]&gt;" type="org.junit.internal.ArrayComparisonFailure"><![CDATA[org.junit.internal.ArrayComparisonFailure: arrays first differed at element [0]; expected: linearalgebra.Vector<[1.0, 2.0, 3.0]> but was: linearalgebra.Vector<[1.0, 2.0, 3.0]>
+	at linearalgebra.MatrixTest.testToRowVectors(MatrixTest.java:1183)
+]]></failure>
+  </testcase>
   <testcase name="testGetNumRows" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testGetEntry" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testGetEntry" classname="linearalgebra.MatrixTest" time="0.001"/>
   <testcase name="testFromColumnVectors" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testIdentityMatrix" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIdentityMatrix" classname="linearalgebra.MatrixTest" time="0.001"/>
   <testcase name="testCopyConstructor" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testAdd" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSubtract" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testGetEntries" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testTrace" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testIsUpperTriangular" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testDeterminant" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testMatrixMultiplication" classname="linearalgebra.MatrixTest" time="0.001"/>
+  <testcase name="testToString" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testDeterminant_Case1" classname="linearalgebra.MatrixTest" time="0.001"/>
+  <testcase name="testDeterminant_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testDeterminant_Case3" classname="linearalgebra.MatrixTest" time="0.001"/>
+  <testcase name="testDeterminant_Case4" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testTrace_BaseTest" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSwapColumns_Case1" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSwapColumns_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSwapColumns_Case3" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSubtract_Static" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsUpperTriangular_Case1" classname="linearalgebra.MatrixTest" time="0.001">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at linearalgebra.MatrixTest.testIsUpperTriangular_Case1(MatrixTest.java:456)
+</failure>
+  </testcase>
+  <testcase name="testIsUpperTriangular_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsUpperTriangular_Case3" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsUpperTriangular_Case4" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsSparse_Case1" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsSparse_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsSparse_Case3" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsSparse_Case4" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsSparse_Case5" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSetRow_Array" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testFromRowVectors" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testDropColumn" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testGetNumColumns" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testIsSparse" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testGetColumn" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testTrace_Case1" classname="linearalgebra.MatrixTest" time="0.001"/>
+  <testcase name="testTrace_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testTrace_Case3" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testMinorMatrixInvalidColumn" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSetEntry_InvalidRow" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testMultiplyByScalar" classname="linearalgebra.MatrixTest" time="0.001"/>
+  <testcase name="testMultiplyByVector" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testToColumnVectors" classname="linearalgebra.MatrixTest" time="0">
+    <failure message="arrays first differed at element [0]; expected: linearalgebra.Vector&lt;[1.0, 4.0, 7.0]&gt; but was: linearalgebra.Vector&lt;[1.0, 4.0, 7.0]&gt;" type="org.junit.internal.ArrayComparisonFailure"><![CDATA[org.junit.internal.ArrayComparisonFailure: arrays first differed at element [0]; expected: linearalgebra.Vector<[1.0, 4.0, 7.0]> but was: linearalgebra.Vector<[1.0, 4.0, 7.0]>
+	at linearalgebra.MatrixTest.testToColumnVectors(MatrixTest.java:1145)
+]]></failure>
+  </testcase>
+  <testcase name="testSetColumn_Vector" classname="linearalgebra.MatrixTest" time="0.001"/>
+  <testcase name="testAdd_Static" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSetColumn_Vector_Invalid" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testAddVectorToRow_Case1" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testAddVectorToRow_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testAddVectorToRow_Case3" classname="linearalgebra.MatrixTest" time="0.001"/>
+  <testcase name="testShape_Case1" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testShape_Case2" classname="linearalgebra.MatrixTest" time="0">
+    <error message="Index 0 out of bounds for length 0" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at linearalgebra.MatrixTest.testShape_Case2(MatrixTest.java:797)
+</error>
+  </testcase>
+  <testcase name="testShape_Case3" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsLowerTriangular_Case1" classname="linearalgebra.MatrixTest" time="0">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at linearalgebra.MatrixTest.testIsLowerTriangular_Case1(MatrixTest.java:422)
+</failure>
+  </testcase>
+  <testcase name="testIsLowerTriangular_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsLowerTriangular_Case3" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSetRow_Vector" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSetRow_Vector_Invalid" classname="linearalgebra.MatrixTest" time="0.001"/>
+  <testcase name="testTranspose_Case1" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testTranspose_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testTranspose_Case3" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testTranspose_Case4" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testToColumnVectors_Transpose" classname="linearalgebra.MatrixTest" time="0.001">
+    <failure message="arrays first differed at element [0]; expected:&lt;[1.0, 4.0, 7.0]&gt; but was:&lt;[1.0, 2.0, 3.0]&gt;" type="org.junit.internal.ArrayComparisonFailure"><![CDATA[org.junit.internal.ArrayComparisonFailure: arrays first differed at element [0]; expected:<[1.0, 4.0, 7.0]> but was:<[1.0, 2.0, 3.0]>
+	at linearalgebra.MatrixTest.testToColumnVectors_Transpose(MatrixTest.java:1163)
+]]></failure>
+  </testcase>
+  <testcase name="testAdd_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testGetColumn" classname="linearalgebra.MatrixTest" time="0.001"/>
+  <testcase name="testIsDiagonal_Case1" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsDiagonal_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsDiagonal_Case3" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testMinorMatrix" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testIsLowerTriangular" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testMultiply" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsSquare_Case1" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsSquare_Case2" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testGetRow" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsPermutationMatrix_Case1" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsPermutationMatrix_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testIsPermutationMatrix_Case3" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSwapRows_Case1" classname="linearalgebra.MatrixTest" time="0.001"/>
+  <testcase name="testSwapRows_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSwapRows_Case3" classname="linearalgebra.MatrixTest" time="0">
+    <failure message="Expected exception: java.lang.IllegalArgumentException" type="java.lang.AssertionError">java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException
+</failure>
+  </testcase>
+  <testcase name="testSubtract_Case2" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSetEntry_InvalidColumn" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testDropRow" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testIsPermutationMatrix" classname="linearalgebra.MatrixTest" time="0"/>
-  <testcase name="testTranspose" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testMinorMatrixInvalidRow" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testTraceNonSquareMatrix" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testAddVectorToColumn_Case1" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testAddVectorToColumn_Case2" classname="linearalgebra.MatrixTest" time="0.001"/>
+  <testcase name="testSetRow_Array_Invalid" classname="linearalgebra.MatrixTest" time="0"/>
   <testcase name="testConstructor" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSetEntry" classname="linearalgebra.MatrixTest" time="0"/>
+  <testcase name="testSetColumn_Array_Invalid" classname="linearalgebra.MatrixTest" time="0"/>
 </testsuite>

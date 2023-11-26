@@ -1,4 +1,31 @@
 -------------------------------------------------------------------------------
 Test set: linearalgebra.MatrixTest
 -------------------------------------------------------------------------------
-Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in linearalgebra.MatrixTest
+Tests run: 87, Failures: 6, Errors: 1, Skipped: 0, Time elapsed: 0.066 s <<< FAILURE! - in linearalgebra.MatrixTest
+testToRowVectors(linearalgebra.MatrixTest)  Time elapsed: 0.004 s  <<< FAILURE!
+org.junit.internal.ArrayComparisonFailure: arrays first differed at element [0]; expected: linearalgebra.Vector<[1.0, 2.0, 3.0]> but was: linearalgebra.Vector<[1.0, 2.0, 3.0]>
+	at linearalgebra.MatrixTest.testToRowVectors(MatrixTest.java:1183)
+
+testIsUpperTriangular_Case1(linearalgebra.MatrixTest)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at linearalgebra.MatrixTest.testIsUpperTriangular_Case1(MatrixTest.java:456)
+
+testToColumnVectors(linearalgebra.MatrixTest)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.internal.ArrayComparisonFailure: arrays first differed at element [0]; expected: linearalgebra.Vector<[1.0, 4.0, 7.0]> but was: linearalgebra.Vector<[1.0, 4.0, 7.0]>
+	at linearalgebra.MatrixTest.testToColumnVectors(MatrixTest.java:1145)
+
+testShape_Case2(linearalgebra.MatrixTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at linearalgebra.MatrixTest.testShape_Case2(MatrixTest.java:797)
+
+testIsLowerTriangular_Case1(linearalgebra.MatrixTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at linearalgebra.MatrixTest.testIsLowerTriangular_Case1(MatrixTest.java:422)
+
+testToColumnVectors_Transpose(linearalgebra.MatrixTest)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.internal.ArrayComparisonFailure: arrays first differed at element [0]; expected:<[1.0, 4.0, 7.0]> but was:<[1.0, 2.0, 3.0]>
+	at linearalgebra.MatrixTest.testToColumnVectors_Transpose(MatrixTest.java:1163)
+
+testSwapRows_Case3(linearalgebra.MatrixTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException
+
