@@ -79,10 +79,24 @@ public class VectorTest {
 
 	// Setters Tests
 	@Test
-	public void testSet() {
+	public void testSet1() {
 		Vector vector = new Vector(1.0, 2.0, 3.0);
 		Vector updatedVector = vector.set(1, 4.0);
 		assertArrayEquals(new double[]{1.0, 4.0, 3.0}, updatedVector.getEntries(), delta);
+	}
+
+	@Test
+	public void testSet2() {
+		Vector vector = new Vector(1.0, 2.0, 3.0);
+		Vector updatedVector = vector.set(0, 4.0);
+		assertArrayEquals(new double[]{4.0, 2.0, 3.0}, updatedVector.getEntries(), delta);
+	}
+
+	@Test
+	public void testSet3() {
+		Vector vector = new Vector(1.0, 2.0, 3.0);
+		Vector updatedVector = vector.set(2, 4.0);
+		assertArrayEquals(new double[]{1.0, 2.0, 4.0}, updatedVector.getEntries(), delta);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -112,9 +126,15 @@ public class VectorTest {
 	}
 
 	@Test
-	public void testInverseVector() {
+	public void testInverseVector1() {
 		Vector vector = new Vector(1,2,3);
 		assertArrayEquals(new double[] {-1.0,-2.0,-3.0}, vector.inverseVector().getEntries(), delta);
+	}
+
+	@Test
+	public void testInverseVector2() {
+		Vector vector = new Vector(1,2,3);
+		assertArrayEquals(new double[] {-1.0,-2.0,-3.0}, Vector.inverseVector(vector).getEntries(), delta);
 	}
 
 	@Test
@@ -229,9 +249,17 @@ public class VectorTest {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testCrossException() {
+	public void testCrossException1() {
 		// length should be 3 for cross product
 		Vector v1 = new Vector(1.0, 0.0, 0.0, 4.0);
+		Vector v2 = new Vector(0.0, 1.0, 0.0);
+		Vector crossprod = v1.cross(v2);  // this should throw an exception
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testCrossException2() {
+		// length should be 3 for cross product
+		Vector v1 = new Vector(1.0, 0.0, 0.0);
 		Vector v2 = new Vector(0.0, 1.0, 0.0, 3.0);
 		Vector crossprod = v1.cross(v2);  // this should throw an exception
 	}
