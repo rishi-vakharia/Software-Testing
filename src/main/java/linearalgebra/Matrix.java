@@ -287,11 +287,11 @@ public class Matrix {
     * @return the entry in the row-th row and col-th col of m
     */
    public static double getEntry(Matrix m, int row, int col) {
-      if (row < 0 || row > m.entries.length) {
+      if (row < 0 || row >= m.entries.length) {
          throw new IllegalArgumentException("Invalid value for row.");
       }
       
-      if (col < 0 || col > m.entries[0].length) {
+      if (col < 0 || col >= m.entries[0].length) {
          throw new IllegalArgumentException("Invalid value for col.");
       }
       
@@ -387,12 +387,13 @@ public class Matrix {
     * @return a Matrix object with the col-th column replaced with u
     */
    public static Matrix setColumn(Matrix m, int col, Vector u) {
-      if (m.entries.length != u.length()) {
-         throw new IllegalArgumentException("Vector length and does not match column length.");
-      }
-      
+
       if (col < 0 || col >= m.getNumColumns()) {
          throw new IllegalArgumentException("Invalid column: " + col);
+      }
+
+      if (m.entries.length != u.length()) {
+         throw new IllegalArgumentException("Vector length and does not match column length.");
       }
       
       Matrix n = new Matrix(m);
@@ -461,12 +462,13 @@ public class Matrix {
     * @return a Matrix object with the row-th row replaced with u
     */
    public static Matrix setRow(Matrix m, int row, Vector u) {
-      if (m.entries[row].length != u.length()) {
-         throw new IllegalArgumentException("Vector length and does not match row length.");
-      }
-      
+
       if (row < 0 || row >= m.getNumRows()) {
          throw new IllegalArgumentException("Invalid row: " + row);
+      }
+
+      if (m.entries[row].length != u.length()) {
+         throw new IllegalArgumentException("Vector length and does not match row length.");
       }
       
       Matrix n = new Matrix(m);
@@ -1116,7 +1118,7 @@ public class Matrix {
     */
    
    public static Vector multiply(Matrix m, Vector u) {
-      if (u.length() != m.getNumRows()) {
+      if (u.length() != m.getNumColumns()) {
          throw new IllegalArgumentException("Incompatible shapes.\n");
       }
    
