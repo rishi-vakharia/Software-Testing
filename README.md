@@ -1,4 +1,38 @@
-# Mutation testing applied on the linearalgebra library
+# Index
+
+* Project report can be found in ST_Proj_Report.pdf file
+* Project prob. stmt can be found in CS731-project-details-T1-2023-24.pdf file
+* Notes.md contains some additional notes to get familiar with Maven, JUnit and PIT
+* The source code used for project can be found in src/main folder
+* Testing strategy used for the project: Mutation Testing
+* Unit test code can be found in the src/test folder
+* The mutation testing report can be found in target/pit-reports folder
+
+# Results
+
+![](./screenshots/Screenshot from 2023-11-27 09-12-43.png)
+
+![](./screenshots/Screenshot from 2023-11-27 09-13-02.png)
+
+# Operators Used
+
+![](./screenshots/Screenshot from 2023-11-27 09-13-34.png)
+
+# Errors Found via Mutation Testing
+
+![](./screenshots/Screenshot from 2023-11-27 09-28-45.png)
+
+![](./screenshots/Screenshot from 2023-11-27 09-28-58.png)
+
+This is due to the absence of boundary testcases.
+
+# Work Distribution
+
+IMT2020038 Pratham: Understood source code, took care of JUnit unit testing (80%)
+
+IMT2020067 Rishi: Found source code, modified it acc. to need, took care of PIT mutation testing, did some unit testing (20%)
+
+# Steps To Run
 
 ## Project management
 
@@ -33,6 +67,8 @@
   ```java -cp ./target/project-1.0-SNAPSHOT.jar linearalgebra.Main```
 
 # linearalgebra (library description)
+The code is taken from https://github.com/danhales/linearalgebra, so I would like to thank them.
+
 A linear algebra package in Java.
 
 For flexibility, most methods are overloaded to include both `static` versions (which require the object as the first parameter) and instance methods. The `static` method does the heavy lifting, and the instance method is a wrapper for the `static` method using `this` as an argument (e.g. `Matrix.transpose(this)`).
