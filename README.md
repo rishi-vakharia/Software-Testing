@@ -10,19 +10,19 @@
 
 # Results
 
-![](./screenshots/Screenshot from 2023-11-27 09-12-43.png)
+![](./screenshots/ss1.png)
 
-![](./screenshots/Screenshot from 2023-11-27 09-13-02.png)
+![](./screenshots/ss2.png)
 
 # Operators Used
 
-![](./screenshots/Screenshot from 2023-11-27 09-13-34.png)
+![](./screenshots/ss3.png)
 
 # Errors Found via Mutation Testing
 
-![](./screenshots/Screenshot from 2023-11-27 09-28-45.png)
+![](./screenshots/ss4.png)
 
-![](./screenshots/Screenshot from 2023-11-27 09-28-58.png)
+![](./screenshots/ss5.png)
 
 This is due to the absence of boundary testcases.
 
