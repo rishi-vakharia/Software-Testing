@@ -1,8 +1,15 @@
+# Description
+* Made as Course Project for Software Testing course (T1 23-24)
+* Here we try out Mutation Testing on the Unit Tests that we wrote for the existing Linear Algebra library.
+* The code for linear algebra functions is taken from https://github.com/danhales/linearalgebra, so I would like to thank them.
+* Concepts learned - Unit Testing, Mutation Testing
+* Tools learned - JUnit, PIT
+
 # Index
 
-* Project report can be found in ST_Proj_Report.pdf file
-* Project prob. stmt can be found in CS731-project-details-T1-2023-24.pdf file
-* Notes.md contains some additional notes to get familiar with Maven, JUnit and PIT
+* Project report can be found in Project_Report.pdf file
+* Project stmt can be found in Project_Expectations.pdf file
+* NOTES.md contains some additional notes to get familiar with Maven, JUnit and PIT
 * The source code used for project can be found in src/main folder
 * Testing strategy used for the project: Mutation Testing
 * Unit test code can be found in the src/test folder
@@ -67,7 +74,6 @@ IMT2020067 Rishi: Found source code, modified it acc. to need, took care of PIT 
   ```java -cp ./target/project-1.0-SNAPSHOT.jar linearalgebra.Main```
 
 # linearalgebra (library description)
-The code is taken from https://github.com/danhales/linearalgebra, so I would like to thank them.
 
 A linear algebra package in Java.
 
